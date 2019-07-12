@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_snaptravel" default="compile.module.snaptravel">
+  <dirname property="module.snaptravel.basedir" file="${ant.file.module_snaptravel}"/>
+  
+  <property name="module.jdk.home.snaptravel" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.snaptravel" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.snaptravel" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.snaptravel" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="snaptravel.output.dir" value="${module.snaptravel.basedir}/bin"/>
+  <property name="snaptravel.testoutput.dir" value="${module.snaptravel.basedir}/bin"/>
+  
+  <path id="snaptravel.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="snaptravel.module.production.classpath">
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/apache-mime4j-0.6.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/bsh-2.0b4.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/cglib-nodep-2.1_3.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/cobertura-2.1.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-codec-1.10.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-collections4-4.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-exec-1.3.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-io-2.4.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-logging-1.2.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/gson-2.3.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/guava-23.0.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/hamcrest-core-1.3.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/hamcrest-library-1.3.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/jcommander-1.48.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/jna-4.1.0.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/jna-platform-4.1.0.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/json-simple-1.1.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/junit-4.12.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/mockito-all-2.0.2-beta.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/mysql-connector-java-5.1.39-bin.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/netty-3.5.7.Final.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/phantomjsdriver-1.2.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/poi-3.15.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/poi-ooxml-3.15.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/poi-ooxml-schemas-3.15.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/testng-6.9.9.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/xmlbeans-2.6.0.jar"/>
+    <path refid="${module.jdk.classpath.snaptravel}"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/selenium-server-standalone-3.5.3.jar"/>
+  </path>
+  
+  <path id="snaptravel.runtime.production.module.classpath">
+    <pathelement location="${snaptravel.output.dir}"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/apache-mime4j-0.6.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/bsh-2.0b4.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/cglib-nodep-2.1_3.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/cobertura-2.1.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-codec-1.10.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-collections4-4.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-exec-1.3.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-io-2.4.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-logging-1.2.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/gson-2.3.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/guava-23.0.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/hamcrest-core-1.3.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/hamcrest-library-1.3.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/jcommander-1.48.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/jna-4.1.0.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/jna-platform-4.1.0.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/json-simple-1.1.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/junit-4.12.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/mockito-all-2.0.2-beta.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/mysql-connector-java-5.1.39-bin.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/netty-3.5.7.Final.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/phantomjsdriver-1.2.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/poi-3.15.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/poi-ooxml-3.15.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/poi-ooxml-schemas-3.15.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/testng-6.9.9.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/xmlbeans-2.6.0.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/selenium-server-standalone-3.5.3.jar"/>
+  </path>
+  
+  <path id="snaptravel.module.classpath">
+    <pathelement location="${snaptravel.output.dir}"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/apache-mime4j-0.6.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/bsh-2.0b4.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/cglib-nodep-2.1_3.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/cobertura-2.1.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-codec-1.10.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-collections4-4.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-exec-1.3.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-io-2.4.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-logging-1.2.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/gson-2.3.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/guava-23.0.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/hamcrest-core-1.3.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/hamcrest-library-1.3.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/jcommander-1.48.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/jna-4.1.0.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/jna-platform-4.1.0.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/json-simple-1.1.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/junit-4.12.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/mockito-all-2.0.2-beta.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/mysql-connector-java-5.1.39-bin.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/netty-3.5.7.Final.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/phantomjsdriver-1.2.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/poi-3.15.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/poi-ooxml-3.15.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/poi-ooxml-schemas-3.15.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/testng-6.9.9.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/xmlbeans-2.6.0.jar"/>
+    <path refid="${module.jdk.classpath.snaptravel}"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/selenium-server-standalone-3.5.3.jar"/>
+  </path>
+  
+  <path id="snaptravel.runtime.module.classpath">
+    <pathelement location="${snaptravel.output.dir}"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/apache-mime4j-0.6.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/bsh-2.0b4.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/cglib-nodep-2.1_3.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/cobertura-2.1.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-codec-1.10.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-collections4-4.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-exec-1.3.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-io-2.4.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/commons-logging-1.2.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/gson-2.3.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/guava-23.0.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/hamcrest-core-1.3.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/hamcrest-library-1.3.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/jcommander-1.48.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/jna-4.1.0.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/jna-platform-4.1.0.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/json-simple-1.1.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/junit-4.12.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/mockito-all-2.0.2-beta.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/mysql-connector-java-5.1.39-bin.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/netty-3.5.7.Final.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/phantomjsdriver-1.2.1.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/poi-3.15.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/poi-ooxml-3.15.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/poi-ooxml-schemas-3.15.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/testng-6.9.9.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/xmlbeans-2.6.0.jar"/>
+    <pathelement location="${basedir}/../../../Uptake/SalesLink/Jars/selenium-server-standalone-3.5.3.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.snaptravel">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.snaptravel">
+    <patternset refid="excluded.from.module.snaptravel"/>
+  </patternset>
+  
+  <path id="snaptravel.module.sourcepath">
+    <dirset dir="${module.snaptravel.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.snaptravel" depends="compile.module.snaptravel.production,compile.module.snaptravel.tests" description="Compile module SnapTravel"/>
+  
+  <target name="compile.module.snaptravel.production" depends="register.custom.compilers" description="Compile module SnapTravel; production classes">
+    <mkdir dir="${snaptravel.output.dir}"/>
+    <javac2 destdir="${snaptravel.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.snaptravel}/javac">
+      <compilerarg line="${compiler.args.snaptravel}"/>
+      <bootclasspath refid="snaptravel.module.bootclasspath"/>
+      <classpath refid="snaptravel.module.production.classpath"/>
+      <src refid="snaptravel.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.snaptravel"/>
+    </javac2>
+    
+    <copy todir="${snaptravel.output.dir}">
+      <fileset dir="${module.snaptravel.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.snaptravel.tests" depends="register.custom.compilers,compile.module.snaptravel.production" description="compile module SnapTravel; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.snaptravel" description="cleanup module">
+    <delete dir="${snaptravel.output.dir}"/>
+    <delete dir="${snaptravel.testoutput.dir}"/>
+  </target>
+</project>
