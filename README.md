@@ -35,14 +35,15 @@ Perform regression(manual and automation) and E2E tests and generate test result
 - Decide build, version control and implement CI/CD
 
 ## **Tradeoffs **
-- When a page is loaded by the browser the interacting elements may load at different time intervals.Leading in element not found excetion. 
-- To avoid the test to break had to use implicit and explicit waits.
+- When a page is loaded by the browser the interacting elements may load at different time intervals.Leading in element not found excetion. To avoid the test to break had to use implicit and explicit waits and traded off on the test execution time. 
 
 ## **Test Scenarios **
+Following are some testcases: 
 - Test successful search results. Test different data for search. 
 - Test all UI Components are loaded.
 - Test incorrect Card information.
 - For Payment verify the mandatory fields.
-- Verify correct message is displayed for payment time expiry.
+- Verify correct message is displayed for payment time expiry,
+- Verify the user navigation after the time expiry
 
 
